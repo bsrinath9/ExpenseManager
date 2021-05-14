@@ -1,0 +1,14 @@
+app.get("/create-item", (req, res) => {
+  const item = new Item({
+    name: "phone",
+    price: 1000,
+  });
+  item.save().then((result) => res.send(result));
+});
+
+
+app.get("/get-item", (req, res) => {
+  Item.findById()
+    .then((result) => res.send(result))
+    .catch((err) => console.log(err));
+});
